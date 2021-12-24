@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/target/aarch64-unknown-linux-gnu/debug/build/typenum-875c349191ecb610/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/target/aarch64-unknown-linux-gnu/debug/build/typenum-875c349191ecb610/out/op.rs
