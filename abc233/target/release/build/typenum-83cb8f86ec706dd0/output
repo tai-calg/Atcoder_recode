@@ -1,0 +1,2 @@
+cargo:rustc-env=TYPENUM_BUILD_CONSTS=/Users/taniguchitaichi/development/rustDev/atcoder_rust/abc233/target/release/build/typenum-83cb8f86ec706dd0/out/consts.rs
+cargo:rustc-env=TYPENUM_BUILD_OP=/Users/taniguchitaichi/development/rustDev/atcoder_rust/abc233/target/release/build/typenum-83cb8f86ec706dd0/out/op.rs
