@@ -19,3 +19,18 @@ fn main() {
 
     //s.insert_str
 }
+
+/* ANSWER
+fn main() {
+    proconio::input! {
+        l: usize,
+        r: usize,
+        s: String,
+    }
+    
+    let s1 = &s[0..(l-1)];
+    let s2 = &s[(l-1)..r].chars().rev().collect::<String>();
+    let s3 = &s[r..];
+    println!("{}{}{}", s1, s2, s3);
+}
+*/
