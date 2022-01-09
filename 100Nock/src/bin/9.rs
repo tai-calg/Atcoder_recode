@@ -23,7 +23,7 @@ fn main() {
         //この時点でanswerのxdiff,ydiffの探索範囲を絞っておく。xdiff に0,1,2,...,10000とか全部入れない。
 
         let mut flg = true;
-        for &(x, y) in &stars{ //全部含まれているか
+        for &(x, y) in &stars{ //全部含まれているか ... ここのコードはまず初めに思いつくべき
             if !map.contains(&(x+xdiff, y+ydiff)){ 
                 flg = false;
                 break
