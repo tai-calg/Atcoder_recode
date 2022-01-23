@@ -15,7 +15,8 @@ fn main() {
     for bit in 0..(1 << n) {
         if (bit as u64).count_ones() != k as u32 {
             continue;
-        }
+        }//最小はkの時意外ありえないので決めうち
+
         let mut sum = 0;
         let mut cost = 0;
         let mut cnt = 0;
@@ -29,14 +30,15 @@ fn main() {
                     cost = beforeH + 1 - a[i];
                     sum += cost;
                     beforeH += 1;
-                }else{ //すでに伸ばす必要がないとき
-                    //cost is 0
-                    beforeH = a[i];
                 }
 
 
 
             }
+
+            
+            beforeH = beforeH.max(a[i]); //どちらの場合でも、高さを更新
+            
         }
 
 
