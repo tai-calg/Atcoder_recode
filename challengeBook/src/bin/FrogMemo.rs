@@ -16,7 +16,7 @@ fn main (){
     let mut dp :Vec<i64>  = Vec::new(); //dynamic programming の略
     dp.resize_with(n, || INF);
     
-    assert_eq!((5i8-7i8).abs(), 2i8);
+    //assert_eq!((5i8-7i8).abs(), 2i8);
 
 
 
