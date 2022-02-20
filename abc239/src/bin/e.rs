@@ -39,4 +39,11 @@ fn main() {
     for &(v, k) in &vk {
         println!("{}", y[v][k]);
     }
+
+
+    //confirm
+    for y1 in y.clone() {
+        println!("{:?}", y1);
+
+    }
 }
