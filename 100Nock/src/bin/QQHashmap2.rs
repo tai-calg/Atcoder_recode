@@ -5,7 +5,6 @@
 use std::{collections::HashMap, vec};
 
 
-use itertools::Itertools;
 use proconio::*;
  
 #[fastout]

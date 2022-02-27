@@ -19,13 +19,14 @@ square1001 君は、AtCoder マーケットに入口と出口を 1 つずつ設�
 
  1 ≤ 𝑁 ≤ 30
   1 ≤ Ai < Bi ≤ 10^9 で整数
-*/
-use proconio::{input, fastout};
-fn main() {
-
+  use proconio::{input, fastout};
+  fn main() {
+      
 }
+*/
 
-/*  answer 解説 : https://img.atcoder.jp/s8pc-6/editorial.pdf
+/*  answer 解説 : https://img.atcoder.jp/s8pc-6/editorial.pdf*/
+
 fn main() {
     let n: usize = read();
     let mut res = 0;
@@ -59,4 +60,3 @@ fn main() {
 /// 前提として、AiBiそれぞれの中央値のマスに出入り口を置くのが最適解だと、例題をみて決めうちしている解法である
 /// sigma|Ai - Bi| + sigma(|Ai - Amid| + |Bi - Bmid|)
 /// 他の人の回答をみても、入口がa, 出口がbの中にあると仮定してforforしてる回答がほとんど
-*/
