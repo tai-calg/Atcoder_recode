@@ -1,3 +1,48 @@
+use proconio::{input, fastout};
+
+use std::collections::VecDeque;
+/*
+フェネック「D問題は、筒の中の状態を底から順に
+「iが書かれたボールがj個連続してる」って形で持っておくと、ボールを追加したときの操作がO(1)でできるねー」
+*/
+#[fastout]
+fn main() {
+    input!{
+        n: usize,
+        a: [usize;n]
+    }
+ 
+    let mut que = VecDeque::new();//_backだけじゃねーか！Vecでおｋ。
+    let mut ans = 0;
+    for element in a.into_iter() {
+        ans += 1;
+        let (u, v) = match que.pop_back() { //let (u,v)が原因でqueのTが(usize,usize)と決定されてる
+            Some(x) => x,
+            None => (0, 0),
+        };
+        //println!("{}: {}", u,v);
+
+        //uがvalue, vがvalueの連続回数！
+        if element == u {//前回と今回が連続
+            if v + 1 == element {
+                ans -= element;
+            } else {
+                que.push_back((u, v+1));//連続だけど消される長さではないので連続カウントを＋＋
+            }
+        } else {
+            que.push_back((u, v));//始めにpopしちゃった分を入れなおしてるだけ
+            //例　1回目：elem = 2 →pop(0,0), push(0,0)、push(2,1) 
+            //2回目:elem=2 →pop(2,1), 長さ削る, 以上。
+            que.push_back((element, 1));
+        }
+ 
+        println!("{:?}", ans);
+    }
+}
+/*
+
+
+
 #![allow(non_snake_case)]
 #![allow(unused_imports)]
 #![allow(dead_code)]
@@ -91,3 +136,4 @@ fn main() {
 
 }
 
+*/
