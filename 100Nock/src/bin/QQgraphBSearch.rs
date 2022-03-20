@@ -38,24 +38,25 @@ fn main() {
         graph[b].push(a);
     }
  
-    fn dfs(graph: &Vec<Vec<usize>>, x: &Vec<u32>, y: &mut Vec<Vec<u32>>, i: usize, p: usize) -> Vec<u32> {
-        let mut c = vec![x[i]];
-        for &j in &graph[i] {
-            if j != p {
-                c.append(&mut dfs(graph, x, y, j, i));
-            }
-        }
-        c.sort_by(|a, b| b.cmp(&a));
-        c.resize(20, 0);
-        y[i] = c.clone();
-        c
-    }
- 
+    
     let mut y = vec![vec![]; n];//yは答え表
     dfs(&graph, &x, &mut y, 0, 0);
- 
+    
     for &(v, k) in &vk { //important! v:vertex のmaxからk番目 を行列として作成
         println!("{}", y[v][k]);
     }
     println!("{:?}", y);
+}
+
+fn dfs(graph: &Vec<Vec<usize>>, x: &Vec<u32>, y: &mut Vec<Vec<u32>>, i: usize, p: usize) -> Vec<u32> {
+    let mut c = vec![x[i]];
+    for &j in &graph[i] {
+        if j != p {
+            c.append(&mut dfs(graph, x, y, j, i));
+        }
+    }
+    c.sort_by(|a, b| b.cmp(&a));
+    c.resize(20, 0);
+    y[i] = c.clone();
+    c
 }
