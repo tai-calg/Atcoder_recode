@@ -3,7 +3,7 @@
 #![allow(unused_imports)]
 #![allow(dead_code)]
 use std::{collections::HashMap, vec};
-
+// https://atcoder.jp/contests/abc235/tasks/abc235_c
 
 use proconio::*;
  
@@ -18,6 +18,7 @@ fn main() {
     for i in 0..n {
         let count = m.entry(A[i]).or_insert(vec![]); 
         //entryで挿入。or_insert ではじめて挿入するときの処理
+        // or_insert(default)でdefault値を&mutで返す。
         //https://keens.github.io/blog/2020/05/23/rustnohashmaphaentrygabenri/
 
         count.push(i+1);
