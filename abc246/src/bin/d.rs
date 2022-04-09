@@ -1,24 +1,26 @@
-#![allow(non_snake_case)]
-#![allow(unused_imports)]
-#![allow(dead_code)]
-use proconio::*;
- 
-#[fastout]
+use proconio::input;
+
+fn val(a: u64, b: u64) -> u64 {
+    return a*a*a + a*a*b + a*b*b + b*b*b;
+}
+
 fn main() {
-    input! {n:usize}
-
-    let minb = ((n/4) as f64).sqrt() as usize;
-    let mut ans:u128 = u128::MAX;
-
-    for b in minb..=n {
-        for a in b..=n {
-            let ni = a*a + b * b;
-            let wa = a+b;
-            let x: u128 = ni as u128 * wa as u128 ;
-            if x >= n as u128  && x < ans {
-                ans = x;
-            }
-        }
+    input! {
+        n: u64,
     }
-    println!("{}",ans);
+
+    let mut a:u64 = 0;
+    let mut b: u64 = 0;
+    while val(a, b) < n {
+        a += 1;
+    }
+    let mut x = val(a, b);
+    while a > b {
+        a -= 1;
+        while val(a, b) < n {
+            b += 1;
+        }
+        x = if x > val(a, b) { val(a, b) } else { x };
+    }
+    println!("{}", x);
 }

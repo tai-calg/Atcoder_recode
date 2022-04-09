@@ -1,3 +1,9 @@
+
+/* https://atcoder.jp/contests/abc246/tasks/abc246_e
+アライグマ「E問題は、ABC170F『Pond Skater』のK=∞バージョンなのだ！
+(今いる座標,向き)を頂点にして、向きを変えるときにコストがかかる01BFSだと思えばいいのだ！」
+*/
+
 use std::collections::VecDeque;
 
 use proconio::{

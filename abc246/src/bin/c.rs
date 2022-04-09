@@ -1,3 +1,46 @@
+use proconio::input;
+
+fn main() {
+    input! {
+        n: usize,
+        mut k: u32,
+        x: u32,
+        mut a: [u32; n],
+    }
+
+    for i in 0..n {
+        let coupon_num = a[i] / x; //貪欲法のようにあらかじめそれぞれに対して効率よく使える枚数を計算
+        if coupon_num >= k {
+            a[i] -= k * x;
+            k = 0;
+            break;
+        } else {
+            a[i] -= coupon_num * x;
+            k -= coupon_num;
+        }
+    }
+    //それでも余ったら…
+    if k > 0 {
+        a.sort();
+        a.reverse();
+        for i in 0..n {
+            a[i] = 0;
+            k -= 1;
+            if k <= 0 {
+                break;
+            }
+        }
+    }
+    let mut total: u64 = 0;
+    for i in 0..n {
+        total += a[i] as u64;
+    }
+    println!("{}", total);
+}
+
+
+
+/*
 #![allow(non_snake_case)]
 #![allow(unused_imports)]
 #![allow(dead_code)]
@@ -66,3 +109,4 @@ fn coupon(vec: &mut Vec<isize>, k:isize, x:isize, issecond:bool) -> isize{ //残
     return k;
 
 }
+*/
