@@ -13,14 +13,15 @@ fn main() {
     let mut b: u64 = 0;
     while val(a, b) < n {
         a += 1;
-    }
+    }//とりあえずaだけでMaxこえるまで＋＋ 計算量はMax;O(e+6)
     let mut x = val(a, b);
-    while a > b {
+    while a > b {//対称性よりa > b 以降の演算をしても意味がないので。 Max;O(0.5* e+6)
         a -= 1;
-        while val(a, b) < n {
+        while val(a, b) < n {//山をならしていく。
             b += 1;
         }
-        x = if x > val(a, b) { val(a, b) } else { x };
+        //minを更新
+        x = std::cmp::min(x, val(a, b));
     }
     println!("{}", x);
 }
